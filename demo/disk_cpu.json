@@ -1,0 +1,24 @@
+→ Step 1: free_disk {'aggressive': True, 'dry_run': False}
+→ Step 2: check_cpu_mem {'top_n': 5}
+Plan confidence: 0.55
+✓ step 1: free_disk →
+{
+  "dry_run": false,
+  "steps": [
+    "apt-get clean",
+    "rm -rf /var/cache/apt/archives/* || true",
+    "journalctl --vacuum-time=1d || true",
+    "find /var/log -type f -name '*.log' -size +5M -delete || true",
+    "find /tmp -mindepth 1 -maxdepth 1 -type f -mtime +1 -delete || true",
+    "find /var/tmp -mindepth 1 -maxdepth 1 -type f -mtime +1 -delete || true"
+  ],
+  "before_used": "df: options -P and --output are mutually exclusive\nTry 'df --help' for more information.",
+  "after_used": "df: options -P and --output are mutually exclusive\nTry 'df --help' for more information."
+}
+✓ step 2: check_cpu_mem →
+{
+  "cpu_percent": 100,
+  "mem_used_mb": 49,
+  "mem_total_mb": 413088,
+  "top": "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot         2 60.9  0.0 124108 51368 ?        Ssl  13:28   0:00 python -u -R --check-hash-based-pycs never -m modal._container_entrypoint Ch10YS0wMUsyTUM5MUNCODdaQUdEVjBWTVdDVzlNRRIZZnUtSTFDN2hmcWJRMElRblNBcVk1c1hNeiIZYXAtZ1RPQTJ2WFNVdW96TXk4b0U3VXNtVzrIAQoJbW9kYWxfYXBwEg1jaGVja19jcHVfbWVtGhltby10VGFuREZzcFRUOHQyanlWU1lpMmF2Ghltby13U2l1WGVkU2NVeHc4b25PYXRxUVc0IhlpbS1xcXR4WHQ5aG1DbTdwOE9ySzMzNG5FOAJAAkoCIgCoAawC+gEJb3BzLWFnZW502gIbChlpbS1xcXR4WHQ5aG1DbTdwOE9ySzMzNG5FwgMA+AMB2AQB+gQAggUVCAESDQoFdG9wX24YAUICCAIaAggHkAUBagRtYWlu\nroot        25 50.0  0.0  16184  8572 ?        R    13:28   0:00 ps aux --sort=-%cpu\nroot         1  0.0  0.0   8292  1692 ?        Ss   13:28   0:00 /bin/dumb-init -- python -u -R --check-hash-based-pycs never -m modal._container_entrypoint Ch10YS0wMUsyTUM5MUNCODdaQUdEVjBWTVdDVzlNRRIZZnUtSTFDN2hmcWJRMElRblNBcVk1c1hNeiIZYXAtZ1RPQTJ2WFNVdW96TXk4b0U3VXNtVzrIAQoJbW9kYWxfYXBwEg1jaGVja19jcHVfbWVtGhltby10VGFuREZzcFRUOHQyanlWU1lpMmF2Ghltby13U2l1WGVkU2NVeHc4b25PYXRxUVc0IhlpbS1xcXR4WHQ5aG1DbTdwOE9ySzMzNG5FOAJAAkoCIgCoAawC+gEJb3BzLWFnZW502gIbChlpbS1xcXR4WHQ5aG1DbTdwOE9ySzMzNG5FwgMA+AMB2AQB+gQAggUVCAESDQoFdG9wX24YAUICCAIaAggHkAUBagRtYWlu\nroot        22  0.0  0.0  11996  4640 ?        S    13:28   0:00 bash -lc ps aux --sort=-%cpu | head -n 6\nroot        26  0.0  0.0  10564  2988 ?        S    13:28   0:00 head -n 6\n"
+}

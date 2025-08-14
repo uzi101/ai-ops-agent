@@ -1,0 +1,12 @@
+→ Fallback shell: ps aux --sort=-%cpu | head -n 20 (dry_run=False)
+Plan confidence: 0.50
+✓ fallback_shell →
+{
+  "ok": true,
+  "dry_run": false,
+  "command": "ps aux --sort=-%cpu | head -n 20",
+  "result": {
+    "rc": 0,
+    "out_tail": "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot         7  100  0.0  16164  8420 ?        R    13:29   0:00 ps aux --sort=-%cpu\nroot         2 88.2  0.0 124112 51144 ?        Ssl  13:29   0:00 python -u -R --check-hash-based-pycs never -m modal._container_entrypoint Ch10YS0wMUsyTUNBOFM1UDlWOFk1TjM1UThTUEczVxIZZnUtZ1A3ZzJ3ZDRaVVU3RmxGR0U2RFhVciIZYXAtZ1RPQTJ2WFNVdW96TXk4b0U3VXNtVzraAQoJbW9kYWxfYXBwEg5ydW5fc2hlbGxfc2FmZRoZbW8tdFRhbkRGc3BUVDh0Mmp5VlNZaTJhdhoZbW8td1NpdVhlZFNjVXh3OG9uT2F0cVFXNCIZaW0tcXF0eFh0OWhtQ203cDhPckszMzRuRTgCQAJKAiIAqAGsAvoBCW9wcy1hZ2VudNoCGwoZaW0tcXF0eFh0OWhtQ203cDhPckszMzRuRcIDAPgDAdgEAfoEAIIFJggBEg0KB2NvbW1hbmRCAggBEg8KB2RyeV9ydW4YAUICCAkaAggHkAUBagRtYWlu\nroot         4 66.6  0.0  11976  4560 ?        S    13:29   0:00 bash -lc ps aux --sort=-%cpu | head -n 20\nroot         1  0.0  0.0   8272  1720 ?        Ss   13:29   0:00 /bin/dumb-init -- python -u -R --check-hash-based-pycs never -m modal._container_entrypoint Ch10YS0wMUsyTUNBOFM1UDlWOFk1TjM1UThTUEczVxIZZnUtZ1A3ZzJ3ZDRaVVU3RmxGR0U2RFhVciIZYXAtZ1RPQTJ2WFNVdW96TXk4b0U3VXNtVzraAQoJbW9kYWxfYXBwEg5ydW5fc2hlbGxfc2FmZRoZbW8tdFRhbkRGc3BUVDh0Mmp5VlNZaTJhdhoZbW8td1NpdVhlZFNjVXh3OG9uT2F0cVFXNCIZaW0tcXF0eFh0OWhtQ203cDhPckszMzRuRTgCQAJKAiIAqAGsAvoBCW9wcy1hZ2VudNoCGwoZaW0tcXF0eFh0OWhtQ203cDhPckszMzRuRcIDAPgDAdgEAfoEAIIFJggBEg0KB2NvbW1hbmRCAggBEg8KB2RyeV9ydW4YAUICCAkaAggHkAUBagRtYWlu\nroot         8  0.0  0.0  10544  4204 ?        S    13:29   0:00 head -n 20\n"
+  }
+}
