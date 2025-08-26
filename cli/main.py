@@ -13,7 +13,7 @@ app = typer.Typer(help="Linux Ops Agent CLI (Modal-backed)")
 OPS_APP = os.getenv("OPS_APP", "ops-agent")
 AUTOHEAL_APP = os.getenv("AUTOHEAL_APP", "ops-agent-autoheal")
 
-# Runbooks routed to the ops app
+# Runbooks routed  to tje ops app
 RUNBOOKS: Dict[str, Dict[str, Any]] = {
     "hello":              {"modal": (OPS_APP, "hello"),              "params": []},
     "install_sql":        {"modal": (OPS_APP, "install_sql"),        "params": []},
@@ -72,7 +72,7 @@ def deterministic_plan(text: str) -> List[Dict[str, Any]]:
             steps.append({"action": "restart_service",
                          "params": {"name": "nginx"}})
 
-    # install package
+    # instal package
     m = re.search(
         r"(install|setup|add)\s+(postgres|postgresql|nginx|redis|htop|git|jq|vim)\b", t)
     if m:
@@ -295,7 +295,7 @@ def do_cmd(
     if plan.get("refuse"):
         reason = plan.get(
             "reason") or "The request was deemed unsafe or out of scope."
-        typer.echo(f"✋ Refused: {reason}")
+        typer.echo(f"Refused: {reason}")
         raise typer.Exit(2)
 
     steps: List[Dict[str, Any]] = plan.get("steps", []) or []
@@ -328,7 +328,7 @@ def do_cmd(
     if not executed_any and plan.get("fallback_shell"):
         shell_cmd = plan["fallback_shell"]
         if not is_locally_safe(shell_cmd):
-            typer.echo("✋ Planner proposed an unsafe shell command. Aborting.")
+            typer.echo("Planner proposed an unsafe shell command. Aborting.")
             raise typer.Exit(3)
         spec = RUNBOOKS["run_shell_safe"]
         dry_run = not yes
@@ -351,12 +351,12 @@ def do_cmd(
         for item in results:
             label = f"step {item['step']}: {item.get('action')}" if "step" in item else "fallback_shell"
             if "error" in item:
-                typer.echo(f"✗ {label} → ERROR: {item['error']}")
+                typer.echo(f"{label} → ERROR: {item['error']}")
             else:
                 payload = item.get("result")
                 pretty = json.dumps(payload, indent=2) if isinstance(
                     payload, (dict, list)) else str(payload)
-                typer.echo(f"✓ {label} →\n{pretty}")
+                typer.echo(f"{label} →\n{pretty}")
 
 
 @app.command("direct")

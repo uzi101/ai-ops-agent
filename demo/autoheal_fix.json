@@ -1,8 +1,8 @@
-✓ Initialized. View run at https://modal.com/apps/uzairbeg11/main/ap-nDPicw56cfyn5SkES7N3xt
+✓ Initialized. View run at https://modal.com/apps/uzairbeg11/main/ap-rE2ECVgVidFYFWA8BOnn7Y
 ✓ Created objects.
 ├── 🔨 Created mount /Users/uzairbeg/Desktop/projects2025/AIAgentInfra/apps/auto_heal.py
-├── 🔨 Created function watch_once.
-└── 🔨 Created function watch_scheduled.
+├── 🔨 Created function watch_scheduled.
+└── 🔨 Created function watch_once.
 {
   "disk": {
     "metric": "disk_used_percent",
@@ -22,4 +22,4 @@
   "dry_run": false
 }
 Stopping app - local entrypoint completed.
-✓ App completed. View run at https://modal.com/apps/uzairbeg11/main/ap-nDPicw56cfyn5SkES7N3xt
+✓ App completed. View run at https://modal.com/apps/uzairbeg11/main/ap-rE2ECVgVidFYFWA8BOnn7Y
