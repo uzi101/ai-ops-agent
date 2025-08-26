@@ -14,8 +14,8 @@ Built with Modal for scalable, containerized execution and the OpenAI API for na
 Quick Start
 
 1. Clone the repo
-   git clone https://github.com/<your-username>/linops.git
-   cd linops
+   git clone https://github.com/uzi101/ai-ops-agent.git
+   cd ai-ops-agent
 
 2. Install dependencies
    python3 -m venv .venv
