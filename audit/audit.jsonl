@@ -1,3 +1,12 @@
 {"id": "5d896622-79b5-4169-bbd4-ec4c525b53ee", "event": "refusal", "ts": 1757256403.0125508, "iso": "2025-09-07T14:46:43.012553Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
 {"id": "1fab989f-179b-4de7-b45b-b03252d5f477", "event": "shell_dry_run", "ts": 1757256403.013821, "iso": "2025-09-07T14:46:43.013821Z", "cmd": "echo hello"}
 {"id": "9ec66ac3-0170-4ffa-a59d-8daec7e9f444", "event": "shell_exec", "ts": 1757256403.019885, "iso": "2025-09-07T14:46:43.019889Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "1286dd43-9c04-4e46-b000-45ad8dcf1c65", "event": "shell_dry_run", "ts": 1757257093.3520231, "iso": "2025-09-07T14:58:13.352057Z", "cmd": "df -h /"}
+{"id": "9de2e006-b8f0-4a15-8e1f-4bd68714b20e", "event": "shell_dry_run", "ts": 1757257093.352942, "iso": "2025-09-07T14:58:13.352942Z", "cmd": "uptime"}
+{"id": "c6adc161-b93c-4886-a04f-52394e24a726", "event": "shell_dry_run", "ts": 1757257093.3530052, "iso": "2025-09-07T14:58:13.353005Z", "cmd": "vm_stat"}
+{"id": "645e44a7-4746-4ec6-9c9d-a117f6a28dc7", "event": "refusal", "ts": 1757257163.600488, "iso": "2025-09-07T14:59:23.600490Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "c1e840de-c170-49e0-af11-2efa0e37f4ec", "event": "shell_dry_run", "ts": 1757257163.602071, "iso": "2025-09-07T14:59:23.602071Z", "cmd": "echo hello"}
+{"id": "d60e3ebf-6427-40a7-9abe-dc45b69e688f", "event": "shell_exec", "ts": 1757257163.6071439, "iso": "2025-09-07T14:59:23.607147Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "6a220f29-caed-4202-be34-53799edb0934", "event": "shell_dry_run", "ts": 1757257163.608242, "iso": "2025-09-07T14:59:23.608242Z", "cmd": "df -h /"}
+{"id": "45812edd-dd17-4356-a08d-6c937f941380", "event": "shell_dry_run", "ts": 1757257163.608593, "iso": "2025-09-07T14:59:23.608593Z", "cmd": "uptime"}
+{"id": "4e98f70c-fc86-4d94-8779-5cd54d52b9bd", "event": "shell_dry_run", "ts": 1757257163.608651, "iso": "2025-09-07T14:59:23.608651Z", "cmd": "vm_stat"}
