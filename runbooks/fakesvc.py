@@ -53,7 +53,7 @@ def heal_fakesvc_8080(
     pidfile: str = DEFAULT_PIDFILE,
 ) -> Dict[str, Any]:
     if _port_open(port):
-        return {"ok": True, "msg": "service healthy", "port": port}
+        return {"ok": True, "msg": "service healthy", "port": port, "verify": {"ok": True, "port": port}}
     if dry_run:
         return {
             "ok": False,

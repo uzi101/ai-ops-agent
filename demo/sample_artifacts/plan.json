@@ -1,0 +1,12 @@
+{
+  "plan": [
+    {
+      "name": "free_disk",
+      "kwargs": {}
+    },
+    {
+      "name": "check_cpu_mem",
+      "kwargs": {}
+    }
+  ]
+}

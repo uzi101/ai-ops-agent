@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "refused": true,
+  "reason": "blocked token: rm -rf /",
+  "cmd": "rm -rf / --no-preserve-root"
+}
