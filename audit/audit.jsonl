@@ -10,3 +10,46 @@
 {"id": "6a220f29-caed-4202-be34-53799edb0934", "event": "shell_dry_run", "ts": 1757257163.608242, "iso": "2025-09-07T14:59:23.608242Z", "cmd": "df -h /"}
 {"id": "45812edd-dd17-4356-a08d-6c937f941380", "event": "shell_dry_run", "ts": 1757257163.608593, "iso": "2025-09-07T14:59:23.608593Z", "cmd": "uptime"}
 {"id": "4e98f70c-fc86-4d94-8779-5cd54d52b9bd", "event": "shell_dry_run", "ts": 1757257163.608651, "iso": "2025-09-07T14:59:23.608651Z", "cmd": "vm_stat"}
+{"id": "a0c0b082-06a7-460b-8492-bb480dfd8e89", "event": "shell_exec", "ts": 1757259096.057169, "iso": "2025-09-07T15:31:36.057246Z", "ok": true, "rc": 0, "stdout": "", "stderr": "cat: /tmp/fakesvc.pid: No such file or directory\n", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "a1b0e217-72a5-40d1-b39c-637e6d7f128a", "event": "shell_dry_run", "ts": 1757259096.058351, "iso": "2025-09-07T15:31:36.058351Z", "cmd": "python -m http.server 8080 & echo $! > /tmp/fakesvc.pid"}
+{"id": "7953d1d0-e7c2-4d1b-82e7-ecac287d4ee1", "event": "shell_exec", "ts": 1757259324.3869581, "iso": "2025-09-07T15:35:24.386962Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "3363ee17-1201-4a1a-b0b3-ed6bb8ee8972", "event": "spawn_proc", "ts": 1757259324.389579, "iso": "2025-09-07T15:35:24.389583Z", "cmd": ["python", "-m", "http.server", "8080"], "pid": 89552, "port": 8080}
+{"id": "948aa9de-384f-41b5-86a0-795bc81b3f77", "event": "shell_exec", "ts": 1757259324.708891, "iso": "2025-09-07T15:35:24.708899Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "a90a5525-e010-41ae-a4ce-37bc0ef0d574", "event": "shell_exec", "ts": 1757259393.269469, "iso": "2025-09-07T15:36:33.269475Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "8b5609b2-5cbd-4150-b395-e76b4a01d9d8", "event": "spawn_proc", "ts": 1757259393.2729979, "iso": "2025-09-07T15:36:33.273001Z", "cmd": ["python", "-m", "http.server", "8080"], "pid": 89722, "port": 8080}
+{"id": "32af9f53-8624-4e2f-9e5f-1e7e3709a080", "event": "refusal", "ts": 1757259393.287505, "iso": "2025-09-07T15:36:33.287506Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "3340d29e-d704-4126-9058-ba5345b04d8e", "event": "shell_dry_run", "ts": 1757259393.288159, "iso": "2025-09-07T15:36:33.288159Z", "cmd": "echo hello"}
+{"id": "88f8828d-3b14-4747-a6c8-5ebde0ae81ab", "event": "shell_exec", "ts": 1757259393.293418, "iso": "2025-09-07T15:36:33.293422Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "fd056a74-51dd-493f-aa77-40040cf122dd", "event": "shell_dry_run", "ts": 1757259393.294898, "iso": "2025-09-07T15:36:33.294898Z", "cmd": "df -h /"}
+{"id": "c508f8e1-f100-4227-b8f1-5140554be3ec", "event": "shell_dry_run", "ts": 1757259393.2955, "iso": "2025-09-07T15:36:33.295501Z", "cmd": "uptime"}
+{"id": "02099777-183e-459f-983e-618f6b1adcd7", "event": "shell_dry_run", "ts": 1757259393.2956228, "iso": "2025-09-07T15:36:33.295623Z", "cmd": "vm_stat"}
+{"id": "69ae1e02-bcaa-46d9-865a-15c87aa325a8", "event": "shell_exec", "ts": 1757259504.5355678, "iso": "2025-09-07T15:38:24.535574Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "61ca898c-ad5b-4f58-91bd-d0ec1409b66a", "event": "spawn_proc", "ts": 1757259504.538134, "iso": "2025-09-07T15:38:24.538138Z", "cmd": ["/opt/miniconda3/envs/ops-agent/bin/python", "-m", "http.server", "8080"], "pid": 90546, "port": 8080}
+{"id": "234f21f2-6b3e-4531-8f49-2d1c3dff853e", "event": "shell_exec", "ts": 1757259505.209196, "iso": "2025-09-07T15:38:25.209204Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "89808ed5-5528-44cf-8543-a4cac047edc9", "event": "shell_exec", "ts": 1757259532.234687, "iso": "2025-09-07T15:38:52.234693Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "bb7beb43-b169-4e6e-b795-659a8de36110", "event": "spawn_proc", "ts": 1757259532.2368371, "iso": "2025-09-07T15:38:52.236839Z", "cmd": ["/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11", "-m", "http.server", "8080"], "pid": 90675, "port": 8080}
+{"id": "04d963ab-b555-4ded-b8bb-dd7396b11ceb", "event": "refusal", "ts": 1757259534.760491, "iso": "2025-09-07T15:38:54.760493Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "4c27ac7b-c1e9-44c1-91d6-8a2837b50f32", "event": "shell_dry_run", "ts": 1757259534.762059, "iso": "2025-09-07T15:38:54.762060Z", "cmd": "echo hello"}
+{"id": "542833db-0e4a-42ed-bf76-420c7208fcb3", "event": "shell_exec", "ts": 1757259534.770258, "iso": "2025-09-07T15:38:54.770263Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "f13771a2-a8f2-4dba-8a45-5c21c4f0acdc", "event": "shell_dry_run", "ts": 1757259534.773031, "iso": "2025-09-07T15:38:54.773031Z", "cmd": "df -h /"}
+{"id": "f307e1e8-f437-40c3-a11d-b6fafa261756", "event": "shell_dry_run", "ts": 1757259534.7737112, "iso": "2025-09-07T15:38:54.773711Z", "cmd": "uptime"}
+{"id": "892d777c-d0ab-4177-aad2-35075df1f667", "event": "shell_dry_run", "ts": 1757259534.7738209, "iso": "2025-09-07T15:38:54.773821Z", "cmd": "vm_stat"}
+{"id": "3d78d5b7-6503-48a5-9191-8aef37025b62", "event": "shell_exec", "ts": 1757259540.1402218, "iso": "2025-09-07T15:39:00.140229Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "6908e15d-6e1c-4e91-81c5-a0e1840a9c18", "event": "spawn_proc", "ts": 1757259540.1432571, "iso": "2025-09-07T15:39:00.143261Z", "cmd": ["/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11", "-m", "http.server", "8080"], "pid": 90778, "port": 8080}
+{"id": "6f5a107a-748a-4f6b-a30a-60ed2fde39bc", "event": "refusal", "ts": 1757259540.4049878, "iso": "2025-09-07T15:39:00.404991Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "004573f6-c7ce-4629-8a42-299dc6c74eca", "event": "shell_dry_run", "ts": 1757259540.406563, "iso": "2025-09-07T15:39:00.406564Z", "cmd": "echo hello"}
+{"id": "90bbdc2f-031b-4aef-a1c0-c1ab95d85ed0", "event": "shell_exec", "ts": 1757259540.416289, "iso": "2025-09-07T15:39:00.416295Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "f92e7c25-c6bb-4a99-9cb5-cd9a53de8335", "event": "shell_dry_run", "ts": 1757259540.418175, "iso": "2025-09-07T15:39:00.418176Z", "cmd": "df -h /"}
+{"id": "633e62bb-a326-448b-8fcd-e80a68c6adb9", "event": "shell_dry_run", "ts": 1757259540.4188411, "iso": "2025-09-07T15:39:00.418841Z", "cmd": "uptime"}
+{"id": "17261b20-cfc8-4a39-b7ed-ddec7f0d8328", "event": "shell_dry_run", "ts": 1757259540.418953, "iso": "2025-09-07T15:39:00.418954Z", "cmd": "vm_stat"}
+{"id": "f28929a4-baca-491b-b685-c0c7acbf633d", "event": "shell_exec", "ts": 1757259563.37264, "iso": "2025-09-07T15:39:23.372656Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "16ecc9e0-943d-4180-90db-e6907fadad30", "event": "spawn_proc", "ts": 1757259563.374652, "iso": "2025-09-07T15:39:23.374656Z", "cmd": ["/opt/miniconda3/envs/ops-agent/bin/python", "-m", "http.server", "8080"], "pid": 91555, "port": 8080}
+{"id": "2df1a2cc-4712-4f4d-9c6f-2fdb6e5602c5", "event": "shell_exec", "ts": 1757259563.8021388, "iso": "2025-09-07T15:39:23.802145Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "ef9b9216-081f-4420-b714-18592d164d9d", "event": "shell_exec", "ts": 1757259575.656072, "iso": "2025-09-07T15:39:35.656076Z", "ok": true, "rc": 0, "stdout": "", "stderr": "", "cmd": "kill -9 $(cat /tmp/fakesvc.pid) 2>/dev/null || true"}
+{"id": "3570bb84-b8a5-4899-8c68-f0a74ca53294", "event": "spawn_proc", "ts": 1757259575.6582131, "iso": "2025-09-07T15:39:35.658215Z", "cmd": ["/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11", "-m", "http.server", "8080"], "pid": 91670, "port": 8080}
+{"id": "4c9cc801-3124-46f4-8978-b241358546a5", "event": "refusal", "ts": 1757259575.924926, "iso": "2025-09-07T15:39:35.924928Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "cd53d909-36d0-47d9-99c9-7c48246dcdc4", "event": "shell_dry_run", "ts": 1757259575.927545, "iso": "2025-09-07T15:39:35.927546Z", "cmd": "echo hello"}
+{"id": "831a6c20-c3ce-48ba-b7bb-ca5bdf381981", "event": "shell_exec", "ts": 1757259575.9376051, "iso": "2025-09-07T15:39:35.937610Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
+{"id": "4b90f0c4-4197-4a12-8d39-9c6495f87a2a", "event": "shell_dry_run", "ts": 1757259575.939635, "iso": "2025-09-07T15:39:35.939635Z", "cmd": "df -h /"}
+{"id": "941e6e15-2ced-4d3d-89aa-f5627fd1eea6", "event": "shell_dry_run", "ts": 1757259575.940328, "iso": "2025-09-07T15:39:35.940329Z", "cmd": "uptime"}
+{"id": "575b69c4-390d-4368-abfa-08d91903eec7", "event": "shell_dry_run", "ts": 1757259575.940468, "iso": "2025-09-07T15:39:35.940469Z", "cmd": "vm_stat"}
