@@ -1,0 +1,3 @@
+{"id": "5d896622-79b5-4169-bbd4-ec4c525b53ee", "event": "refusal", "ts": 1757256403.0125508, "iso": "2025-09-07T14:46:43.012553Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "1fab989f-179b-4de7-b45b-b03252d5f477", "event": "shell_dry_run", "ts": 1757256403.013821, "iso": "2025-09-07T14:46:43.013821Z", "cmd": "echo hello"}
+{"id": "9ec66ac3-0170-4ffa-a59d-8daec7e9f444", "event": "shell_exec", "ts": 1757256403.019885, "iso": "2025-09-07T14:46:43.019889Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}

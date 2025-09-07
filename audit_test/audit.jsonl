@@ -1,0 +1,5 @@
+{"id": "3386cbc0-fb69-4cf9-94d8-d0115a54a3f7", "event": "plan", "ts": 1756991106.935624, "iso": "2025-09-04T13:05:06.935637Z", "query": "free disk and check cpu/mem", "plan": [{"name": "free_disk"}]}
+{"id": "cc3cbb21-f673-4b46-8657-d867750b34de", "event": "refusal", "ts": 1756991106.9361768, "iso": "2025-09-04T13:05:06.936177Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: --no-preserve-root"}
+{"id": "a83e77a9-0ec4-4520-9f23-7c3314ee037d", "event": "refusal", "ts": 1757256323.808147, "iso": "2025-09-07T14:45:23.808191Z", "cmd": "rm -rf / --no-preserve-root", "reason": "blocked token: rm -rf /"}
+{"id": "01a0a0cf-1f9f-4492-8670-c25dce702543", "event": "shell_dry_run", "ts": 1757256323.8092391, "iso": "2025-09-07T14:45:23.809239Z", "cmd": "echo hello"}
+{"id": "a7ca5d75-b280-490b-a2b8-9c16e8c9d2b4", "event": "shell_exec", "ts": 1757256323.814798, "iso": "2025-09-07T14:45:23.814801Z", "ok": true, "rc": 0, "stdout": "hello\n", "stderr": "", "cmd": "echo hello"}
