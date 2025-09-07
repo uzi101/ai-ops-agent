@@ -1,54 +1,58 @@
-import os
-import re
-import json
-from typing import Dict, Any
-from runbooks.registry import RUNBOOKS
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, Dict, List
+
+from runbooks.catalog import RUNBOOKS
+from planner.llm import llm_plan
 
 
-def _rules(text: str) -> Dict[str, Any]:
-    t = text.lower()
-    if ("install" in t) and any(k in t for k in ["postgres", "postgresql", "psql", "sql"]):
-        return {"action": "install_sql", "params": {}, "confidence": 0.6}
-    if ("free" in t and "disk" in t) or ("clear" in t and "space" in t):
-        aggressive = "aggressive" in t or "everything" in t
-        return {"action": "free_disk", "params": {"dry_run": True, "aggressive": aggressive}, "confidence": 0.6}
-    if "nginx" in t and any(k in t for k in ["restart", "fix", "crash", "crashed", "down"]):
-        return {"action": "restart_service", "params": {"name": "nginx"}, "confidence": 0.6}
-    m = re.search(r"restart\s+([a-z0-9\-\.]+)", t)
-    if m:
-        return {"action": "restart_service", "params": {"name": m.group(1)}, "confidence": 0.5}
-    return {"action": None, "params": {}, "confidence": 0.0, "reason": "No safe runbook matched"}
+@dataclass(frozen=True)
+class Step:
+    name: str
+    kwargs: Dict[str, Any]
 
 
-def plan(text: str) -> Dict[str, Any]:
-    """LLM router constrained to RUNBOOKS; falls back to rules if no OPENAI_API_KEY."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        return _rules(text)
-    try:
-        from openai import OpenAI
-        client = OpenAI(api_key=api_key)
-        tools = [{"name": k, "params": RUNBOOKS[k]["params"]}
-                 for k in RUNBOOKS]
-        prompt = f"""
-You are a router. Allowed actions: {tools}
-User: {text}
-Return STRICT JSON: {{"action": string|null, "params": object, "confidence": 0..1, "reason"?: string}}
-"""
-        resp = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-        )
-        txt = resp.choices[0].message.content.strip()
-        start, end = txt.find("{"), txt.rfind("}")
-        data = json.loads(txt[start:end+1]) if start != - \
-            1 else {"action": None, "params": {}, "confidence": 0}
-        act = data.get("action")
-        if act and act in RUNBOOKS:
-            allowed = set(RUNBOOKS[act]["params"])
-            data["params"] = {k: v for k, v in (
-                data.get("params") or {}).items() if k in allowed}
-        return data
-    except Exception:
-        return _rules(text)
+def _rules_plan(q: str) -> List[Step]:
+    if "web" in q and any(tok in q for tok in ("crash", "down", "restart", "verify")):
+        return [Step("heal_fakesvc_8080", {})]
+    if "free" in q and "disk" in q and ("cpu" in q or "mem" in q):
+        return [Step("free_disk", {}), Step("check_cpu_mem", {})]
+    steps: List[Step] = []
+    for name in RUNBOOKS.keys():
+        if name in q:
+            steps.append(Step(name, {}))
+    return steps
+
+
+def _safe_default() -> List[Step]:
+    return [Step("check_cpu_mem", {})]
+
+
+def plan_actions(query: str, mode: str = "auto") -> List[Step]:
+    q = (query or "").lower().strip()
+
+    if mode in {"rules", "auto"}:
+        ruled = _rules_plan(q)
+        if ruled:
+            return ruled
+
+    if mode in {"llm", "auto"}:
+        proposed = llm_plan(q)
+        if proposed:
+            return [Step(x["name"], x.get("kwargs", {})) for x in proposed]
+
+    fallback = _rules_plan(q)
+    return fallback if fallback else _safe_default()
+
+
+def plan(query: str, mode: str = "auto") -> Dict[str, Any]:
+    steps = plan_actions(query, mode=mode)
+    primary = steps[0] if steps else None
+    is_safe_default = len(steps) == 1 and steps[0].name == "check_cpu_mem"
+    action = None if is_safe_default else (primary.name if primary else None)
+    return {
+        "action": action,
+        "kwargs": (primary.kwargs if primary else None),
+        "steps": [{"name": s.name, "kwargs": s.kwargs} for s in steps],
+    }
